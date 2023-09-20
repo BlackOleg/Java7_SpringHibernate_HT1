@@ -17,6 +17,5 @@ public class Persons {
     @Column(nullable = false)
     private String phone_number;
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
-    @JoinColumn(name="id", nullable=false, updatable=false)
     private City city_of_living;
 }

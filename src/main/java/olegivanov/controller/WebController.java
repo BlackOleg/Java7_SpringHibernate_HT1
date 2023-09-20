@@ -1,5 +1,6 @@
 package olegivanov.controller;
 
+import olegivanov.entity.City;
 import olegivanov.entity.Persons;
 import olegivanov.service.WebService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,15 +26,9 @@ public class WebController {
 
     @GetMapping("/products/by-city")
     @ResponseBody
-    public List<Persons> getPersonsByCity(@RequestParam("city") String city) {
+    public List<City> getPersonsByCity(@RequestParam("city") String city) {
         return webService.getPersonsByCity(city);
     }
-    @GetMapping("/products/by-age")
-    public List<Persons> getPersonsByAge() {
-        return webService.getPersonsByAge();
-    }
-
-
 
 
 }

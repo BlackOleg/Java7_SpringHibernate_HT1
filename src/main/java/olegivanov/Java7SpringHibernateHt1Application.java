@@ -24,10 +24,10 @@ public class Java7SpringHibernateHt1Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // code goes here...
+
         //var city1= City.builder().name("LONDON").build();
         //repository.saveCity(city1);
-        //createData();
+//        createData();
 
     }
 
@@ -39,7 +39,7 @@ public class Java7SpringHibernateHt1Application implements CommandLineRunner {
                         .age(50)
                         .build())
                 .phone_number("+75550009623")
-                .city_of_living(City.builder().name("MOSKOW").build())
+                .city_of_living(City.builder().name("MOSCOW").build())
                 .build();
         var person2 = Persons.builder()
                 .personId(PersonId.builder()
@@ -48,7 +48,7 @@ public class Java7SpringHibernateHt1Application implements CommandLineRunner {
                         .age(22)
                         .build())
                 .phone_number("+75550009777")
-                .city_of_living(City.builder().name("MOSKOW").build())
+                .city_of_living(City.builder().name("MOSCOW").build())
                 .build();
         var person3 = Persons.builder()
                 .personId(PersonId.builder()
