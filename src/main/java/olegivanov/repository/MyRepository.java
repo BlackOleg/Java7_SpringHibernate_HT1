@@ -2,6 +2,11 @@ package olegivanov.repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
+import olegivanov.entity.City;
+import olegivanov.entity.PersonId;
+import olegivanov.entity.Persons;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -19,11 +24,29 @@ import java.util.stream.Collectors;
 @Repository
 public class MyRepository {
     @PersistenceContext
-    EntityManager entityManager;
+    private EntityManager entityManager;
 
     public MyRepository(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
+    @Transactional
+    public void savePersons(Persons persons){
+        entityManager.persist(persons);
+    }
+    @Transactional
+    public void saveCity(City city){
+        entityManager.persist(city);
+    }
+    @Transactional
+    public List<Persons> getPersonsByCity(String city) {
+        String sql = "SELECT * FROM myhometask.persons";
+        TypedQuery<Persons> query = entityManager.createQuery(sql, Persons.class);
+
+        return query.getResultList();
+    }
 
 
+    public List<Persons> getPersonsByAge() {
+        return List.of(new Persons());
+    }
 }

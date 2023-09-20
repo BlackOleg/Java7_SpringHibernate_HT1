@@ -1,5 +1,6 @@
 package olegivanov.controller;
 
+import olegivanov.entity.Persons;
 import olegivanov.service.WebService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,10 +23,14 @@ public class WebController {
         return "First Greatings";
     }
 
-    @GetMapping("/products/fetch-product")
+    @GetMapping("/products/by-city")
     @ResponseBody
-    public List<String> getProductsByName(@RequestParam("name") String name) {
-        return webService.getProductsByName(name);
+    public List<Persons> getPersonsByCity(@RequestParam("city") String city) {
+        return webService.getPersonsByCity(city);
+    }
+    @GetMapping("/products/by-age")
+    public List<Persons> getPersonsByAge() {
+        return webService.getPersonsByAge();
     }
 
 

@@ -22,4 +22,7 @@ public class PersonId implements Serializable {
     private String surname;
     @Column(nullable = false)
     private int age;
+    public PersonId(String name){
+        this.name=name;
+    }
 }

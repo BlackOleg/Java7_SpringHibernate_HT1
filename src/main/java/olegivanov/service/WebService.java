@@ -1,5 +1,6 @@
 package olegivanov.service;
 
+import olegivanov.entity.Persons;
 import olegivanov.repository.MyRepository;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +14,13 @@ public class WebService {
         public WebService(MyRepository myRepository) {
             this.myRepository = myRepository;
         }
-        public List<String> getProductsByName(String name){
+        public List<Persons> getPersonsByCity(String city){
 
-            return myRepository.getProductsByName(name.toLowerCase());
+            return myRepository.getPersonsByCity(city.toUpperCase());
         }
 
 
+    public List<Persons> getPersonsByAge() {
+        return myRepository.getPersonsByAge();
+    }
 }
