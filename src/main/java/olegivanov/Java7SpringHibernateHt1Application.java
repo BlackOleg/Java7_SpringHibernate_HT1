@@ -25,8 +25,6 @@ public class Java7SpringHibernateHt1Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        //var city1= City.builder().name("LONDON").build();
-        //repository.saveCity(city1);
 //        createData();
 
     }
